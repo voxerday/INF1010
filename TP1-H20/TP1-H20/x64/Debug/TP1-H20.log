@@ -1,0 +1,3 @@
+﻿  Librairie.cpp
+C:\Users\Mart\Desktop\TP1-H20\TP1-H20-Windows\TP1-H20\src\Librairie.cpp(264): warning C4715: 'Librairie::lireLigneFilm' : les chemins de contrôle ne retournent pas tous une valeur
+  TP1-H20.vcxproj -> C:\Users\Mart\Desktop\TP1-H20\TP1-H20-Windows\x64\Debug\TP1-H20.exe
