@@ -1,0 +1,13 @@
+﻿  Auteur.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Auteur.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Auteur.h' : No such file or directory
+  Film.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Film.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Film.h' : No such file or directory
+  GestionnaireAuteurs.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\GestionnaireAuteurs.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'GestionnaireAuteurs.h' : No such file or directory
+  Librairie.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Librairie.h' : No such file or directory
+  main.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\main.cpp(12,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'GestionnaireAuteurs.h' : No such file or directory
+  Utilisateur.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Utilisateur.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Utilisateur.h' : No such file or directory
+  Génération de code en cours...
