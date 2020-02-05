@@ -13,12 +13,23 @@ Auteur::Auteur(const std::string& nom, unsigned int anneeDeNaissance)
 
 //! Méthode qui affiche un auteur
 //! \param stream Le stream dans lequel afficher
-void Auteur::afficher(std::ostream& stream) const
+std::ostream& operator<<(std::ostream& stream, const Auteur& auteur)
 {
-    // Ne modifiez pas cette fonction
-    stream << "Nom: " << nom_ << " | Date de naissance: " << anneeDeNaissance_
-           << " | Nombre de films: " << nbFilms_;
+    stream << "Nom: " << auteur.nom_ << " | Date de naissance: " << auteur.anneeDeNaissance_
+               << " | Nombre de films: " << auteur.nbFilms_;
+    return stream;
 }
+
+bool operator==(const Auteur& auteur, std::string nom)
+{
+    return auteur.nom_ == nom;
+}
+
+bool operator==(std::string nom, const Auteur& auteur)
+{
+    return auteur.nom_ == nom;
+}
+
 
 //! Méthode qui retourne le nom de l'auteur
 //! \return Le nom de l'auteur

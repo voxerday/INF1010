@@ -5,6 +5,7 @@
 #include <string>
 #include "Auteur.h"
 #include "Pays.h"
+#include <vector>
 
 class Film
 {
@@ -27,7 +28,7 @@ public:
     void ajouterPaysRestreint(Pays pays);
     void supprimerPaysRestreints();
     bool estRestreintDansPays(Pays pays) const;
-    void afficher(std::ostream& stream) const;
+    friend std::ostream& operator<<(std::ostream& stream, const Film& film);
 
     Genre getGenre() const;
     bool estRestreintParAge() const;
@@ -43,7 +44,7 @@ private:
     bool estRestreintParAge_;
     Auteur* auteur_;
 
-    std::unique_ptr<Pays[]> paysRestreints_;
+    std::vector<Pays> paysRestreints_;
     std::size_t nbPaysRestreints_;
     std::size_t capacitePaysRestreints_;
 };

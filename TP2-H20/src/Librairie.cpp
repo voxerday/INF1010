@@ -14,9 +14,7 @@ namespace
 
 //! Constructeur de la classe Librairie
 Librairie::Librairie()
-    : films_(new Film*[CAPACITE_FILMS_INITIALE])
-    , nbFilms_(0)
-    , capaciteFilms_(CAPACITE_FILMS_INITIALE)
+    : films_()
 {
 }
 
@@ -24,7 +22,7 @@ Librairie::Librairie()
 Librairie::~Librairie()
 {
     supprimerFilms();
-    delete[] films_;
+    films_.clear();
 }
 
 const std::vector<std::unique_ptr<Film>>& Librairie::getFilms() const
@@ -35,7 +33,7 @@ const std::vector<std::unique_ptr<Film>>& Librairie::getFilms() const
 //! Méthode qui ajoute un film à la liste des films
 //! \param film Le film alloué dynamiquement à ajouter à la liste. La classe devient propriétaire du
 //!             film.
-void Librairie::ajouterFilm(Film* film)
+void Librairie::operator+=(Film* film)
 {
     static constexpr unsigned int AUGMENTATION_CAPACITE_FILMS = 2;
 
@@ -44,24 +42,24 @@ void Librairie::ajouterFilm(Film* film)
         return;
     }
 
-    // Verifier si assez de mémoire est allouée
-    if (nbFilms_ >= capaciteFilms_)
-    {
-        // Créer nouveau tableau
-        Film** nouvelleListe = new Film*[capaciteFilms_ * AUGMENTATION_CAPACITE_FILMS];
+    //// Verifier si assez de mémoire est allouée
+    //if (nbFilms_ >= capaciteFilms_)
+    //{
+    //    // Créer nouveau tableau
+    //    Film** nouvelleListe = new Film*[capaciteFilms_ * AUGMENTATION_CAPACITE_FILMS];
 
-        // Copier chaque élement vers le nouveau tableau
-        for (std::size_t i = 0; i < nbFilms_; i++)
-        {
-            nouvelleListe[i] = films_[i];
-        }
+    //    // Copier chaque élement vers le nouveau tableau
+    //    for (std::size_t i = 0; i < nbFilms_; i++)
+    //    {
+    //        nouvelleListe[i] = films_[i];
+    //    }
 
-        delete[] films_;
-        films_ = nouvelleListe; // Pointer vers la nouvelle adresse mémoire
-        capaciteFilms_ *= AUGMENTATION_CAPACITE_FILMS; // Mettre à jour la capacité
-    }
-
-    films_[nbFilms_++] = film;
+    //    delete[] films_;
+    //    films_ = nouvelleListe; // Pointer vers la nouvelle adresse mémoire
+    //    capaciteFilms_ *= AUGMENTATION_CAPACITE_FILMS; // Mettre à jour la capacité
+    //}
+    *this = film;
+    films_.push_back(std::move(film));
 }
 
 //! Méthode qui retire un film de la liste
@@ -150,9 +148,9 @@ bool Librairie::chargerRestrictionsDepuisFichiers(const std::string& nomFichier)
 
 //! Méthode qui affiche la liste des films.
 //! \param stream Le stream dans lequel afficher
-void Librairie::afficher(std::ostream& stream) const
+std::ostream& operator<<(std::ostream& stream, const Librairie& film)
 {
-    for (std::size_t i = 0; i < nbFilms_; i++)
+    for (std::size_t i = 0; i < film.size(); i++)
     {
         films_[i]->afficher(stream);
         stream << '\n';
@@ -239,7 +237,7 @@ bool Librairie::lireLigneFilm(const std::string& ligne, GestionnaireAuteurs& ges
                               to_enum<Pays>(paysValeurEnum),
                               estRestreintParAge,
                               auteur);
-        ajouterFilm(film);
+        *this += film;
         return true;
     }
     return false;
@@ -250,7 +248,7 @@ bool Librairie::lireLigneFilm(const std::string& ligne, GestionnaireAuteurs& ges
 //! \return        L'index du film. Retourne -1 si le film n'existe pas
 int Librairie::trouverIndexFilm(const std::string& nomFilm) const
 {
-    for (std::size_t i = 0; i < nbFilms_; i++)
+    for (std::size_t i = 0; i < films_.size(); i++)
     {
         if (films_[i]->getNom() == nomFilm)
         {

@@ -36,28 +36,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Auteur.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\debogageMemoire.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\Film.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\GestionnaireAuteurs.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\Librairie.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\Pays.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\typesafe_enum.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="include\Utilisateur.h">
-      <Filter>Fichiers de ressources</Filter>
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
