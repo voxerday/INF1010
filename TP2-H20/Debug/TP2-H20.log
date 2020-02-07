@@ -1,52 +1,41 @@
-﻿  Film.cpp
-  GestionnaireAuteurs.cpp
-  Librairie.cpp
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(61,17): error C2679: '=' binaire : aucun opérateur trouvé qui accepte un opérande de partie droite de type 'Film *' (ou il n'existe pas de conversion acceptable)
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\include\Librairie.h(13,16): message : est peut-être 'Librairie &Librairie::operator =(const Librairie &)'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(61,17): message : lors de la tentative de mise en correspondance de la liste des arguments '(Librairie, Film *)'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(62,37): error C2664: 'void std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>::push_back(_Ty &&)' : impossible de convertir l'argument 1 de 'Film *' en 'const _Ty &'
+﻿  Librairie.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xmemory(671,1): error C2280: 'std::unique_ptr<Film,std::default_delete<Film>>::unique_ptr(const std::unique_ptr<Film,std::default_delete<Film>> &)' : tentative de référencement d'une fonction supprimée
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1912): message : voir la déclaration de 'std::unique_ptr<Film,std::default_delete<Film>>::unique_ptr'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1912,5): message : 'std::unique_ptr<Film,std::default_delete<Film>>::unique_ptr(const std::unique_ptr<Film,std::default_delete<Film>> &)' : la fonction a été supprimée explicitement
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(683): message : voir la référence à l'instanciation de la fonction modèle 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Ty&>(_Alloc &,_Objty *const ,const _Ty &)' en cours de compilation
+          with
+          [
+              _Alloc=std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>,
+              _Ty=std::unique_ptr<Film,std::default_delete<Film>>,
+              _Objty=std::unique_ptr<Film,std::default_delete<Film>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(688): message : voir la référence à l'instanciation de la fonction modèle 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Ty&>(_Alloc &,_Objty *const ,const _Ty &)' en cours de compilation
+          with
+          [
+              _Alloc=std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>,
+              _Ty=std::unique_ptr<Film,std::default_delete<Film>>,
+              _Objty=std::unique_ptr<Film,std::default_delete<Film>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(701): message : voir la référence à l'instanciation de la fonction modèle '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<const _Ty&>(const _Ty &)' en cours de compilation
           with
           [
               _Ty=std::unique_ptr<Film,std::default_delete<Film>>
           ]
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(62,37): message : Raison : impossible de convertir de 'Film *' en 'const _Ty'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(718): message : voir la référence à l'instanciation de la fonction modèle '_Ty &std::vector<_Ty,std::allocator<_Ty>>::emplace_back<const _Ty&>(const _Ty &)' en cours de compilation
           with
           [
               _Ty=std::unique_ptr<Film,std::default_delete<Film>>
           ]
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(62,37): message : Le constructeur pour class 'std::unique_ptr<Film,std::default_delete<Film>>' est déclaré 'explicit'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(717,10): message : voir la déclaration de 'std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>::push_back'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(67,17): error C2039: 'retirerFilm' : n'est pas membre de 'Librairie'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\include\Librairie.h(8): message : voir la déclaration de 'Librairie'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(69,21): error C3861: 'trouverIndexFilm' : identificateur introuvable
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(75,12): error C2065: 'films_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(76,5): error C2065: 'films_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(76,25): error C2065: 'films_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(76,32): error C2065: 'nbFilms_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(77,5): error C2065: 'nbFilms_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(90,29): error C2440: 'return' : impossible de convertir de '_Ty' en 'Film *'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(717): message : pendant la compilation de la fonction membre classe modèle 'void std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>::push_back(const _Ty &)'
           with
           [
               _Ty=std::unique_ptr<Film,std::default_delete<Film>>
           ]
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(90,28): message : Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(130,37): error C2065: 'nbFilms_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(153,42): error C2039: 'size' : n'est pas membre de 'Librairie'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\include\Librairie.h(8): message : voir la déclaration de 'Librairie'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(155,9): error C2065: 'films_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(164,12): error C2065: 'nbFilms_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(170,33): error C2065: 'nbFilms_' : identificateur non déclaré
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(173,25): error C2440: 'delete' : impossible de convertir de '_Ty' en 'void*'
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(56): message : voir la référence à l'instanciation de la fonction modèle 'void std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>::push_back(const _Ty &)' en cours de compilation
           with
           [
               _Ty=std::unique_ptr<Film,std::default_delete<Film>>
           ]
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(173,24): message : Aucun opérateur de conversion définie par l'utilisateur disponible qui puisse effectuer cette conversion, ou l'opérateur ne peut pas être appelé
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(175,5): error C2065: 'nbFilms_' : identificateur non déclaré
+C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\include\Librairie.h(36): message : voir la référence à l'instanciation classe modèle 'std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>' en cours de compilation
   main.cpp
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\main.cpp(154,88): error C2297: '+=' : non conforme, l'opérande droit est du type 'Film *'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\main.cpp(157,38): error C2297: '+=' : non conforme, l'opérande droit est du type 'nullptr'
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\main.cpp(169,20): error C2676: '-=' binaire : 'Librairie' ne définit pas cet opérateur ou une conversion vers un type acceptable pour l'opérateur prédéfini
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\main.cpp(172,16): error C2676: '-=' binaire : 'Librairie' ne définit pas cet opérateur ou une conversion vers un type acceptable pour l'opérateur prédéfini
   Génération de code en cours...
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\GestionnaireAuteurs.cpp(79): warning C4715: 'operator<<' : les chemins de contrôle ne retournent pas tous une valeur
