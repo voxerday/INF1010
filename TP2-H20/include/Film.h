@@ -45,7 +45,6 @@ private:
     Auteur* auteur_;
 
     std::vector<Pays> paysRestreints_;
-    std::size_t nbPaysRestreints_;
     std::size_t capacitePaysRestreints_;
 };
 

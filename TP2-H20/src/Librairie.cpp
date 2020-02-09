@@ -14,7 +14,7 @@ namespace
 
 //! Constructeur de la classe Librairie
 Librairie::Librairie()
-    : films_()
+    : films_(std::vector<std::unique_ptr<Film>>(0))
 {
 }
 
@@ -26,16 +26,22 @@ Librairie::~Librairie()
 
 Librairie::Librairie(const Librairie& librairie)
 {
-    films_ = librairie.getFilms();
+    operator=(librairie);
 }
 
 Librairie& Librairie::operator=(const Librairie& librairie)
 {
     if (this != &librairie)
     {
-        films_.clear();
+        supprimerFilms();
 
+        films_.reserve(librairie.films_.size());
+        for (const auto& lib : librairie.films_)
+        {
+            films_.push_back(std::make_unique<Film>(*lib));
+        }
     }
+    return *this;
 }
 
 const std::vector<std::unique_ptr<Film>>& Librairie::getFilms() const
@@ -48,13 +54,9 @@ const std::vector<std::unique_ptr<Film>>& Librairie::getFilms() const
 //!             film.
 Librairie& Librairie::operator+=(Film* film)
 {
-    // static constexpr unsigned int AUGMENTATION_CAPACITE_FILMS = 2;
-
     if (film != nullptr)
     {
-        std::unique_ptr<Film> f(film);
-        films_.push_back(f);
-        // films_.push_back(std::move(film));
+        films_.push_back(std::make_unique<Film>(*film));
     }
     return *this;
 }
@@ -146,7 +148,6 @@ std::ostream& operator<<(std::ostream& stream, const Librairie& film)
 {
     for (std::size_t i = 0; i < film.getNbFilms(); i++)
     {
-        //*film.films_[i]->afficher(stream);
         stream << *(film.films_[i]);
         stream << '\n';
     }
@@ -163,10 +164,6 @@ std::size_t Librairie::getNbFilms() const
 //! Méthode qui supprime tous les films
 void Librairie::supprimerFilms()
 {
-    for (std::size_t i = 0; i < films_.size(); i++)
-    {
-        films_.at(i)->getAuteur()->setNbFilms(0);
-    }
     films_.clear();
 }
 

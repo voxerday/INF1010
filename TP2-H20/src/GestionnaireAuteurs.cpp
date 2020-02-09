@@ -34,7 +34,7 @@ Auteur* GestionnaireAuteurs::chercherAuteur(const std::string& nomAuteur)
 {
     for (std::size_t i = 0; i < auteurs_.size(); i++)
     {
-        if (auteurs_[i] == nomAuteur)
+        if (auteurs_[i].getNom() == nomAuteur)
         {
             return &auteurs_[i];
         }
@@ -74,8 +74,9 @@ std::ostream& operator<<(std::ostream& stream, const GestionnaireAuteurs& auteur
     for (std::size_t i = 0; i < auteur.auteurs_.size(); i++)
     {
         stream << auteur.auteurs_[i];
-        return stream << '\n';
+        stream << '\n';
     }
+    return stream;
 }
 
 //! Méthode qui retourne le nombre d'auteurs

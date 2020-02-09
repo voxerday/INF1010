@@ -59,41 +59,19 @@ Film::Film(const std::string& nom, unsigned int anneeDeSortie, Genre genre, Pays
     , pays_(pays)
     , estRestreintParAge_(estRestreintParAge)
     , auteur_(auteur)
-    , paysRestreints_(CAPACITE_PAYS_INITIALE) // std::make_unique<Pays[]>(CAPACITE_PAYS_INITIALE))
-    , nbPaysRestreints_(0)
-    , capacitePaysRestreints_(CAPACITE_PAYS_INITIALE)
+    , paysRestreints_(std::vector<Pays>(0))
 {
 }
 
 Film::~Film()
 {
-    paysRestreints_.clear();
-    delete[] auteur_;
+    auteur_->setNbFilms(auteur_->getNbFilms() - 1); 
 }
 
 //! Méthode qui ajoute un pays à liste des pays restreints du film
 //! \param pays Pays à ajouter à la liste
 void Film::ajouterPaysRestreint(Pays pays)
 {
-    static constexpr unsigned int AUGMENTATION_CAPACITE_PAYS = 2;
-
-    //// Verifier si assez de mémoire est allouée
-    //if (nbPaysRestreints_ >= capacitePaysRestreints_)
-    //{
-    //    // Creer nouveau tableau
-    //    std::unique_ptr<Pays[]> newArray =
-    //        std::make_unique<Pays[]>(capacitePaysRestreints_ * AUGMENTATION_CAPACITE_PAYS);
-
-    //    // Copier chaque élément vers le nouveau tableau
-    //    for (std::size_t i = 0; i < nbPaysRestreints_; i++)
-    //    {
-    //        newArray[i] = paysRestreints_[i];
-    //    }
-
-    //    paysRestreints_ = std::move(newArray); // Pointer vers la nouvelle adresse mémoire
-    //    capacitePaysRestreints_ *= AUGMENTATION_CAPACITE_PAYS; // Mettre à jour la capacité
-    //}
-    nbPaysRestreints_++;
     paysRestreints_.push_back(pays);
 }
 
@@ -101,7 +79,6 @@ void Film::ajouterPaysRestreint(Pays pays)
 void Film::supprimerPaysRestreints()
 {
     paysRestreints_.clear();
-    nbPaysRestreints_ = 0;
 }
 
 //! Méthode qui retourne si un pays est dans la liste des pays restreints du film
@@ -116,13 +93,6 @@ bool Film::estRestreintDansPays(Pays pays) const
             return true;
         }
     }
-    /*for (std::size_t i = 0; i < nbPaysRestreints_; i++)
-    {
-        if (paysRestreints_[i] == pays)
-        {
-            return true;
-        }
-    }*/
     return false;
 }
 
@@ -134,9 +104,9 @@ std::ostream& operator<<(std::ostream& stream, const Film& film)
     stream << film.nom_ << "\n\tDate de sortie: " << film.anneeDeSortie_
            << "\n\tGenre: " << getGenreString(film.genre_) << "\n\tAuteur: " << film.auteur_->getNom()
            << "\n\tPays: " << getPaysString(film.pays_)
-           << (film.nbPaysRestreints_ == 0 ? "\n\tAucun pays restreint." : "\n\tPays restreints:");
+           << (film.paysRestreints_.size() == 0 ? "\n\tAucun pays restreint." : "\n\tPays restreints:");
 
-    for (std::size_t i = 0; i < film.nbPaysRestreints_; i++)
+    for (std::size_t i = 0; i < film.paysRestreints_.size(); i++)
     {
         stream << "\n\t\t" << getPaysString(film.paysRestreints_[i]);
     }

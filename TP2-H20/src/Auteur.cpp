@@ -22,12 +22,24 @@ std::ostream& operator<<(std::ostream& stream, const Auteur& auteur)
 
 bool operator==(const Auteur& auteur, std::string nom)
 {
-    return auteur.nom_ == nom;
+    if (auteur.getNom() == nom)
+    {
+        return true;
+    }
+
+    return false;
+    //return auteur.nom_ == nom;
 }
 
 bool operator==(std::string nom, const Auteur& auteur)
 {
-    return auteur.nom_ == nom;
+    if (auteur.getNom() == nom)
+    {
+        return true;
+    }
+
+    return false;
+    //return auteur.nom_ == nom;
 }
 
 

@@ -1,41 +1,4 @@
-﻿  Librairie.cpp
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\xmemory(671,1): error C2280: 'std::unique_ptr<Film,std::default_delete<Film>>::unique_ptr(const std::unique_ptr<Film,std::default_delete<Film>> &)' : tentative de référencement d'une fonction supprimée
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1912): message : voir la déclaration de 'std::unique_ptr<Film,std::default_delete<Film>>::unique_ptr'
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\memory(1912,5): message : 'std::unique_ptr<Film,std::default_delete<Film>>::unique_ptr(const std::unique_ptr<Film,std::default_delete<Film>> &)' : la fonction a été supprimée explicitement
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(683): message : voir la référence à l'instanciation de la fonction modèle 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Ty&>(_Alloc &,_Objty *const ,const _Ty &)' en cours de compilation
-          with
-          [
-              _Alloc=std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>,
-              _Ty=std::unique_ptr<Film,std::default_delete<Film>>,
-              _Objty=std::unique_ptr<Film,std::default_delete<Film>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(688): message : voir la référence à l'instanciation de la fonction modèle 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,const _Ty&>(_Alloc &,_Objty *const ,const _Ty &)' en cours de compilation
-          with
-          [
-              _Alloc=std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>,
-              _Ty=std::unique_ptr<Film,std::default_delete<Film>>,
-              _Objty=std::unique_ptr<Film,std::default_delete<Film>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(701): message : voir la référence à l'instanciation de la fonction modèle '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<const _Ty&>(const _Ty &)' en cours de compilation
-          with
-          [
-              _Ty=std::unique_ptr<Film,std::default_delete<Film>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(718): message : voir la référence à l'instanciation de la fonction modèle '_Ty &std::vector<_Ty,std::allocator<_Ty>>::emplace_back<const _Ty&>(const _Ty &)' en cours de compilation
-          with
-          [
-              _Ty=std::unique_ptr<Film,std::default_delete<Film>>
-          ]
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\vector(717): message : pendant la compilation de la fonction membre classe modèle 'void std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>::push_back(const _Ty &)'
-          with
-          [
-              _Ty=std::unique_ptr<Film,std::default_delete<Film>>
-          ]
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\src\Librairie.cpp(56): message : voir la référence à l'instanciation de la fonction modèle 'void std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>::push_back(const _Ty &)' en cours de compilation
-          with
-          [
-              _Ty=std::unique_ptr<Film,std::default_delete<Film>>
-          ]
-C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\include\Librairie.h(36): message : voir la référence à l'instanciation classe modèle 'std::vector<std::unique_ptr<Film,std::default_delete<Film>>,std::allocator<std::unique_ptr<Film,std::default_delete<Film>>>>' en cours de compilation
-  main.cpp
+﻿  Film.cpp
+  Librairie.cpp
   Génération de code en cours...
+  TP2-H20.vcxproj -> C:\Users\Mart\Documents\POLY\INF1010\TP2-H20\Debug\TP2-H20.exe
