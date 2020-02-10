@@ -15,14 +15,12 @@ GestionnaireAuteurs::GestionnaireAuteurs()
 //! \param auteur L'auteur à ajouter
 //! \return       Un bool représentant si l'opération a fonctionnné
 bool GestionnaireAuteurs::operator+=(const Auteur& auteur)
-// bool GestionnaireAuteurs::ajouterAuteur(const Auteur& auteur)
 {
     if (auteurs_.size() >= NB_AUTEURS_MAX)
     {
         return false;
     }
 
-    // auteurs_[nbAuteurs_] = auteur; // Auteur - GestionaireAuteur
     auteurs_.push_back(auteur);
     return true;
 }

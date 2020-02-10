@@ -14,9 +14,7 @@ public:
     Librairie& operator=(const Librairie& librairie);
     ~Librairie();
 
-    //void ajouterFilm(Film* film);
     Librairie& operator+=(Film* film);
-    //void retirerFilm(const std::string& nomFilm);
     Librairie& operator-=(const std::string& nomFilm);
     Film* chercherFilm(const std::string& nomFilm);
     bool chargerFilmsDepuisFichier(const std::string& nomFichier,

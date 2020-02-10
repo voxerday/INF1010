@@ -100,7 +100,7 @@ bool Film::estRestreintDansPays(Pays pays) const
 //! \param stream Le stream dans lequel afficher
 std::ostream& operator<<(std::ostream& stream, const Film& film)
 {
-    // Ne modifiez pas cette fonction DELETE IT Mouhahaha
+    // Ne modifiez pas cette fonction
     stream << film.nom_ << "\n\tDate de sortie: " << film.anneeDeSortie_
            << "\n\tGenre: " << getGenreString(film.genre_) << "\n\tAuteur: " << film.auteur_->getNom()
            << "\n\tPays: " << getPaysString(film.pays_)
