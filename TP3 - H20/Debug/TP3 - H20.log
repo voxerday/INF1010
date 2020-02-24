@@ -1,0 +1,83 @@
+﻿  Auteur.cpp
+  Episode.cpp
+  Film.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Film.cpp(8,1): error C2512: 'Media' : aucun constructeur par défaut approprié disponible
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Media.h(10,7): message : voir la déclaration de 'Media'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Film.cpp(15,1): error C2512: 'Media' : aucun constructeur par défaut approprié disponible
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Media.h(10,7): message : voir la déclaration de 'Media'
+  GestionnaireAuteurs.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\GestionnaireAuteurs.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'GestionnaireAuteurs.h' : No such file or directory
+  GestionnaireSaisons.cpp
+  Librairie.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Librairie.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Librairie.h' : No such file or directory
+  main.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\main.cpp(5,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Librairie.h' : No such file or directory
+  Media.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Media.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Media.h' : No such file or directory
+  Saison.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Saison.cpp(43,25): error C2059: erreur de syntaxe : ';'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Saison.cpp(44,7): error C2039: 'trouverIndexEpisode' : n'est pas membre de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Episode.h(13): message : voir la déclaration de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Saison.cpp(44,7): error C2039: 'episode' : n'est pas membre de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Episode.h(13): message : voir la déclaration de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Saison.cpp(44,8): error C2065: 'trouverIndexEpisode' : identificateur non déclaré
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Saison.cpp(45,14): error C2039: 'episodes_' : n'est pas membre de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Episode.h(13): message : voir la déclaration de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Saison.cpp(45,24): error C2039: 'push_back' : n'est pas membre de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Episode.h(13): message : voir la déclaration de 'std::unique_ptr<Episode,std::default_delete<Episode>>'
+  Serie.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(4,13): error C2653: 'Serie' : n'est pas un nom de classe ni d'espace de noms
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(4,14): error C2065: 'Auteur' : identificateur non déclaré
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(4,22): error C2065: 'auteur' : identificateur non déclaré
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(4,28): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(6,1): error C2448: 'Serie' : l'initialiseur de style fonction semble être une définition de fonction
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(10,13): error C2825: 'Serie' : doit être une classe ou un espace de noms lorsqu'il est suivi par '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(10,8): error C2510: 'Serie' : class/struct/union doit figurer à gauche de '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(10,25): error C2039: 'string' : n'est pas membre de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\predefined C++ types (compiler internal)(367): message : voir la déclaration de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(10,31): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(10,31): error C2143: erreur de syntaxe : absence de ',' avant '&'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(13,1): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(10,13): error C2365: 'Serie' : redéfinition ; la précédente définition était 'variable de données'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(4): message : voir la déclaration de 'Serie'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(17,13): error C2825: 'Serie' : doit être une classe ou un espace de noms lorsqu'il est suivi par '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(17,8): error C2510: 'Serie' : class/struct/union doit figurer à gauche de '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(17,25): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(17,25): error C2143: erreur de syntaxe : absence de ',' avant '&'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(19,1): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(17,13): error C2365: 'Serie' : redéfinition ; la précédente définition était 'variable de données'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(4): message : voir la déclaration de 'Serie'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,6): error C2039: 'ostream' : n'est pas membre de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\predefined C++ types (compiler internal)(367): message : voir la déclaration de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,13): error C2143: erreur de syntaxe : absence de ';' avant '&'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,13): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,30): error C2825: 'Serie' : doit être une classe ou un espace de noms lorsqu'il est suivi par '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,22): error C2510: 'Serie' : class/struct/union doit figurer à gauche de '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,36): error C2039: 'ostream' : n'est pas membre de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\predefined C++ types (compiler internal)(367): message : voir la déclaration de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,45): error C2065: 'os' : identificateur non déclaré
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,47): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,49): error C2440: 'initialisation' : impossible de convertir de 'initializer list' en 'int &'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,30): message : Un type référence ne peut pas être initialisé par une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(24,49): error C2059: erreur de syntaxe : 'const'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(25,1): error C2143: erreur de syntaxe : absence de ';' avant '{'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(25,1): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(30,6): error C2039: 'unique_ptr' : n'est pas membre de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\predefined C++ types (compiler internal)(367): message : voir la déclaration de 'std'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(30,16): error C2143: erreur de syntaxe : absence de ';' avant '<'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(30,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(30,36): error C2825: 'Serie' : doit être une classe ou un espace de noms lorsqu'il est suivi par '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(30,31): error C2510: 'Serie' : class/struct/union doit figurer à gauche de '::'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(31,1): error C2143: erreur de syntaxe : absence de ';' avant '{'
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Serie.cpp(31,1): error C2447: '{' : en-tête de fonction manquant (liste formelle à l'ancien format ?)
+  Utilisateur.cpp
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Utilisateur.cpp(1,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'Utilisateur.h' : No such file or directory
+  Génération de code en cours...
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\GestionnaireSaisons.cpp(21): error C4716: 'GestionnaireSaisons::operator-=' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\GestionnaireSaisons.cpp(15): error C4716: 'GestionnaireSaisons::operator+=' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\GestionnaireSaisons.cpp(42): error C4716: 'GestionnaireSaisons::trouverIndexSaison' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\GestionnaireSaisons.cpp(48): error C4716: 'GestionnaireSaisons::getSaison' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\GestionnaireSaisons.cpp(54): error C4716: 'GestionnaireSaisons::getNbSaisons' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Episode.cpp(50): error C4716: 'operator>>' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Episode.cpp(34): error C4716: 'operator<<' : doit retourner une valeur
+C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\src\Auteur.cpp(70): error C4716: 'operator>>' : doit retourner une valeur
