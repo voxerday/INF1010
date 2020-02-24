@@ -1,3 +1,7 @@
+//! Classe Auteur
+//! \author Careau, Martin(1978446) et Sitchom Kamdem, Laurelle Audrey(1876331)
+//! \date 11 février 2020
+
 #include "Auteur.h"
 #include <iostream>
 
@@ -20,11 +24,15 @@ std::ostream& operator<<(std::ostream& stream, const Auteur& auteur)
     return stream;
 }
 
+//! Méthode qui compare le nom d'auteur
+//! \return bool
 bool operator==(const Auteur& auteur, std::string nom)
 {
     return auteur.nom_ == nom;
 }
 
+//! Méthode qui compare le nom d'auteur
+//! \return bool
 bool operator==(std::string nom, const Auteur& auteur)
 {
     return auteur.nom_ == nom;

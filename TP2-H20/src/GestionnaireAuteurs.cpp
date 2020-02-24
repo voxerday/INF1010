@@ -1,3 +1,7 @@
+//! Classe GestionnaireAuteur
+//! \author Careau, Martin(1978446) et Sitchom Kamdem, Laurelle Audrey(1876331)
+//! \date 11 février 2020
+
 #include "GestionnaireAuteurs.h"
 #include <fstream>
 #include <iomanip>

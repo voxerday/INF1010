@@ -1,3 +1,5 @@
+//! Classe Utilisateur
+
 #include "Utilisateur.h"
 
 //! Constructeur de la classe Utilisateur

@@ -1,3 +1,7 @@
+//! Classe Film
+//! \author Careau, Martin(1978446) et Sitchom Kamdem, Laurelle Audrey(1876331)
+//! \date 11 février 2020
+
 #include "Film.h"
 #include <iostream>
 #include "Pays.h"
@@ -63,6 +67,7 @@ Film::Film(const std::string& nom, unsigned int anneeDeSortie, Genre genre, Pays
 {
 }
 
+//! Destructeur
 Film::~Film()
 {
     auteur_->setNbFilms(auteur_->getNbFilms() - 1); 

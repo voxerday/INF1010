@@ -1,3 +1,7 @@
+//! Classe Librairie
+//! \author Careau, Martin(1978446) et Sitchom Kamdem, Laurelle Audrey(1876331)
+//! \date 11 février 2020
+
 #include "Librairie.h"
 #include <fstream>
 #include <iomanip>
@@ -24,11 +28,13 @@ Librairie::~Librairie()
     supprimerFilms();
 }
 
+//! Constructeur par copie de la classe Librairie
 Librairie::Librairie(const Librairie& librairie)
 {
     operator=(librairie);
 }
 
+//! Méthode qui copie une librairie
 Librairie& Librairie::operator=(const Librairie& librairie)
 {
     if (this != &librairie)
