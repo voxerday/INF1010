@@ -4,6 +4,11 @@
 Librairie::Librairie(const Librairie& librairie)
 {
     // To do
+    //std::vector<std::unique_ptr<Media>> medias_
+    medias_.reserve(librairie.medias_.size());
+
+    for (const auto& e : librairie.medias_)
+        saisons_.push_back(std::make_unique<Media>(*e));
 }
 
 // To do

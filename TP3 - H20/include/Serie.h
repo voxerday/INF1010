@@ -3,6 +3,8 @@
 
 #include <iomanip>
 // To do
+#include "GestionnaireSaisons.h"
+#include "Media.h"
 
 class Serie
     : public Media

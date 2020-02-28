@@ -1,8 +1,11 @@
 // To do
-#include "..\include\Auteur.h"
+#include "Auteur.h"
 // To do
 Auteur::Auteur()
 // To do
+    :nom_(),
+    anneeDeNaissance_(),
+    nbMedias_(0)
 {
 }
 
@@ -64,7 +67,31 @@ std::ostream& operator<<(std::ostream& os, const Auteur& auteur)
 }
 
 // To do
+//! Méthode qui ajoute un auteur avec un string
+//! \param ligne Le string qui comporte tous les attributs de l'auteur
+//bool GestionnaireAuteurs::lireLigneAuteur(const std::string& ligne)
+//{
+//    std::istringstream stream(ligne);
+//    std::string nomAuteur;
+//    unsigned int age;
+//
+//    // Pour extraire tout ce qui se trouve entre "" dans un stream,
+//    // il faut faire stream >> std::quoted(variable)
+//
+//    if (stream >> std::quoted(nomAuteur) >> age)
+//    {
+//        bool succes = *this += Auteur(nomAuteur, age);
+//        return succes;
+//    }
+//    return false;
+//} 
 std::istream& operator>>(std::istream& is, Auteur& auteur)
 {
     // To do
+    std::string nomAuteur;
+    unsigned int age;
+    if (is >> std::quoted(nomAuteur) >> age) {
+        auteur.nom_ = nomAuteur;
+        auteur.anneeDeNaissance_ = age;
+    }
 }

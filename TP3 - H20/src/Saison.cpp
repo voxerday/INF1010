@@ -42,6 +42,7 @@ Saison& Saison::operator+=(std::unique_ptr<Episode> episode)
     unsigned int epNum = *episode->getNumEpisode;
     if (trouverIndexEpisode(epNum)) { *this -= epNum; }
     episodes_.push_back(episode);
+    sort(episodes_.begin(), episodes_.end(), Episode::SortByNumEpisode());
 }
 
 // To do
