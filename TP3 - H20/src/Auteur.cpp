@@ -94,4 +94,5 @@ std::istream& operator>>(std::istream& is, Auteur& auteur)
         auteur.nom_ = nomAuteur;
         auteur.anneeDeNaissance_ = age;
     }
+    return is;
 }

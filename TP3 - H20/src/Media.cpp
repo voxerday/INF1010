@@ -1,4 +1,5 @@
 #include "Media.h"
+#include "Librairie.h"
 
 namespace
 {
@@ -57,6 +58,7 @@ Media::Media(const std::string& nom, unsigned int anneeDeSortie, Genre genre, Pa
              bool estRestreintParAge, Auteur* auteur, Media::TypeMedia typeMedia)
     // To do
     :nom_(nom),
+    anneeDeSortie_(anneeDeSortie),
     genre_(genre),
     pays_(pays),
     estRestreintParAge_(estRestreintParAge),
@@ -74,7 +76,7 @@ Media::Media(const Media& serie)
     anneeDeSortie_ = serie.anneeDeSortie_;
     genre_ = serie.genre_;
     pays_ = serie.pays_;
-    estRestreintParAge_ = serie.estRestreintParAge;
+    estRestreintParAge_ = serie.estRestreintParAge_;
     auteur_ = serie.auteur_;
     typeMedia_ = serie.typeMedia_;
     paysRestreints_ = serie.paysRestreints_;
@@ -171,6 +173,7 @@ std::ostream& operator<<(std::ostream& os, const Media& media)
     {
         (Serie*)&media.afficher(os);
     }
+    return os;
 }
 
 // To do
@@ -216,16 +219,16 @@ std::istream& Media::lire(std::istream& is)
         genre_ = genre;
         pays_ = pays;
         estRestreintParAge_ = estRestreintParAge;
-        if (*this->getTypeMedia == Media::TypeMedia::Film)
+        if (this->getTypeMedia() == Media::TypeMedia::Film)
         {
             (Film*)&this->lire(is);
         }
-        else if (*this->getTypeMedia == Media::TypeMedia::Serie)
+        else if (this->getTypeMedia() == Media::TypeMedia::Serie)
         {
             (Serie*)&this->lire(is);
         }
     }
-    
+    return is;
 }
 
 // To do
@@ -233,6 +236,7 @@ std::istream& operator>>(std::istream& is, Media& media)
 {
     // To do
     media.lire(is);
+    return is;
 }
 
 // To do

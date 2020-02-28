@@ -31,6 +31,7 @@ std::ostream& operator<<(std::ostream& os, const Episode& episode)
     // To do
     //Episode01:Episode:01|Durée:00:00:00
     os << episode.nom_ << ":Episode:" << episode.numEpisode_ << "|Durée:" << episode.duree_ << std::endl;
+    return os;
 }
 
 // To do
@@ -47,6 +48,7 @@ std::istream& operator>>(std::istream& is, Episode& episode)
         episode.duree_ = duree;
         episode.numEpisode_ = num;
     }
+    return is;
 }
 
 // To do

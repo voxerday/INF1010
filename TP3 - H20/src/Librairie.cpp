@@ -59,7 +59,7 @@ void Librairie::ajouterSaison(const std::string& nomSerie, std::unique_ptr<Saiso
 {
     // To do
     Serie* serie = chercherSerie(nomSerie);
-    serie->operator+= *saison;
+    serie->operator+= (std::move(saison));
 }
 
 // To do
@@ -67,7 +67,7 @@ void Librairie::retirerSaison(const std::string& nomSerie, unsigned int numSaiso
 {
     // To do
     Serie* serie = chercherSerie(nomSerie);
-    serie->operator-= *numSaison;
+    serie->operator-= (numSaison);
 }
 
 // To do
@@ -247,39 +247,90 @@ const std::vector<std::unique_ptr<Media>>& Librairie::getMedias() const
 }
 
 // To do
-bool Librairie::lireLigneEpisode(std::istream& is, GestionnaireAuteurs&)
+bool Librairie::lireLigneFilm(std::istream& is, GestionnaireAuteurs& gestionnaireAuteurs)
 {
     // To do
-    std::string auteur, nom;
+    std::string auteur, nom, duree;
     int annee, genreVal, paysVal;
     bool restriction;
-    is >> std::quoted(auteur) >> std::quoted(nom) >> annee >> genreVal >> paysVal >> restriction;
-    Auteur* dude = GestionnaireAuteurs::chercherAuteur(auteur);
-    Media();
-}
-
-// To do
-bool Librairie::lireLigneSaison(std::istream& is, GestionnaireAuteurs&)
-{
-    // To do
+    if (is >> std::quoted(auteur) >> std::quoted(nom) >> annee >> genreVal >> paysVal >> restriction >>duree)
+    {
+        Auteur* dude = gestionnaireAuteurs.chercherAuteur(auteur);
+        if (dude)
+        {
+            //dude->setNbMedias((dude->getNbMedias) + 1);
+            Film(nom, annee, to_enum<Media::Genre>(genreVal), to_enum<Pays>(paysVal), restriction, dude, duree);
+            return true;
+        }
+    }
+    return false;
 }
 
 // To do
 bool Librairie::lireLigneSerie(std::istream& is, GestionnaireAuteurs& gestionnaireAuteurs)
 {
     // To do
+    std::string auteur, nom;
+    int annee, genreVal, paysVal;
+    bool restriction;
+    if (is >> std::quoted(auteur) >> std::quoted(nom) >> annee >> genreVal >> paysVal >> restriction)
+    {
+        Auteur* dude = gestionnaireAuteurs.chercherAuteur(auteur);
+        if (dude)
+        {
+            //dude->setNbMedias((dude->getNbMedias) + 1);
+            Serie(nom, annee, to_enum<Media::Genre>(genreVal), to_enum<Pays>(paysVal), restriction, dude);
+            return true;
+        }
+    }
+    return false;
 }
 
 // To do
-bool Librairie::lireLigneFilm(std::istream& is, GestionnaireAuteurs& gestionnaireAuteurs)
+bool Librairie::lireLigneSaison(std::istream& is, GestionnaireAuteurs&)
 {
     // To do
+    std::string nom;
+    int numero, nbEp;
+
+    if (is >> numero >> nbEp >> std::quoted(nom))
+    {
+        Saison saison(numero, nbEp);
+        Serie* serie = chercherSerie(nom);
+        if (serie)
+        {
+            serie->operator+= (std::make_unique<Saison>(saison));
+            return true;
+        }
+    }
+    return false;
+
+}
+
+// To do
+bool Librairie::lireLigneEpisode(std::istream& is, GestionnaireAuteurs&)
+{
+    // To do
+    std::string nom, duree, nomSerie;
+    int num, numSaison;
+    if (is >> num >> std::quoted(nom) >> std::quoted(duree) >> std::quoted(nomSerie) >> numSaison)
+    {
+        Episode ep(num, nom, duree);
+        Serie* serie = chercherSerie(nomSerie);
+        if (serie)
+        {
+            serie->ajouterEpisode(numSaison, std::make_unique<Episode>(ep));
+            return true;
+        }
+    }
+    return false;
 }
 
 // To do
 size_t Librairie::getNbFilms() const
 {
     // To do
+    return medias_.size();
 }
 
 // To do

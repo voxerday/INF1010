@@ -25,6 +25,7 @@ std::ostream& Film::afficher(std::ostream& os) const
 {
     // To do
     os << duree_;
+    return os;
 }
 
 // To do
@@ -34,11 +35,12 @@ std::istream& Film::lire(std::istream& is)
     std::string duree;
     is >> std::quoted(duree);
     duree_ = duree;
+    return is;
 }
 
 // To do
 std::unique_ptr<Media> Film::clone() const
 {
     // To do
-    return std::make_unique<Media>(this);
+    return std::make_unique<Media>(*this);
 }

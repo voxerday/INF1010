@@ -39,10 +39,13 @@ Saison::~Saison()
 Saison& Saison::operator+=(std::unique_ptr<Episode> episode)
 {
     // To do
-    unsigned int epNum = *episode->getNumEpisode;
+    unsigned int epNum = episode->getNumEpisode();
     if (trouverIndexEpisode(epNum)) { *this -= epNum; }
     episodes_.push_back(episode);
-    sort(episodes_.begin(), episodes_.end(), Episode::SortByNumEpisode());
+    if (episodes_.size() > 1)
+    {
+        sort(episodes_.begin(), episodes_.end(), Episode::SortByNumEpisode());
+    }
 }
 
 // To do
