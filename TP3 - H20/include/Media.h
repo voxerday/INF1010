@@ -7,7 +7,6 @@
 #include "Pays.h"
 #include "typesafe_enum.h"
 
-//#include "Librairie.h"
 
 class Media
 {
@@ -63,6 +62,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Media& media);
     friend std::istream& operator>>(std::istream& is, Media& media);
 
+    Auteur* getAuteur() const;
     Genre getGenre() const;
     const std::string& getNom() const;
     Media::TypeMedia getTypeMedia() const;

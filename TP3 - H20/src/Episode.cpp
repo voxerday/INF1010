@@ -1,59 +1,58 @@
 // To do
 #include "Episode.h"
-// To do
+
+//! Constructeur de la classe Episode par defaut
 Episode::Episode()
-// To 
     :nom_(),
     duree_(),
-    numEpisode_()
+    numEpisode_(0)
 {
 }
 
-// To do
+//! Constructeur de la classe Episode
+//! \param numEpisode        Numï¿½ro de l'episode
+//! \param nom               Nom de l'episode
+//! \param duree             Duree de l'episode
 Episode::Episode(unsigned int numEpisode, const std::string& nom, const std::string& duree)
-// To do
+
     :nom_(nom),
     duree_(duree),
     numEpisode_(numEpisode)
 {
 }
 
-// To do
+//! Methode qui compare deux numero d'episode
+//! \param numEpisode        Numï¿½ro de l'episode
+//! \return vrai si le numero d'episode est identique, faux sinon
 bool Episode::operator==(unsigned int numEpisode)
 {
-    // To do
     return (numEpisode_ == numEpisode);
 }
 
-// To do
+//! Operateur qui affiche un episode
+//! \param os Le stream dans lequel afficher
+//! \param episode l'episode a afficher
 std::ostream& operator<<(std::ostream& os, const Episode& episode)
 {
-    // To do
-    //Episode01:Episode:01|Durée:00:00:00
-    os << episode.nom_ << ":Episode:" << episode.numEpisode_ << "|Durée:" << episode.duree_ << std::endl;
+    os << "Episode" << std::setfill('0') << std::setw(2) 
+        << episode.numEpisode_ << ": " 
+        << episode.nom_ 
+        << " | DurÃ©e: " << episode.duree_;
     return os;
 }
 
-// To do
+//! Operateur qui affecte un Episode
+//! \param is Le stream avec les infos (numero d'episode, nom et duree)
+//! \param episode l'episode a affecter
 std::istream& operator>>(std::istream& is, Episode& episode)
 {
-    // To do
-    std::string nom;
-    std::string duree;
-    unsigned int num;
-    //"1\"Episode:01\"\"00:00:00\""
-    if (is >> num >> std::quoted(nom) >> duree) 
-    {
-        episode.nom_ = nom;
-        episode.duree_ = duree;
-        episode.numEpisode_ = num;
-    }
+    is >> episode.numEpisode_ >> std::quoted(episode.nom_) >> std::quoted(episode.duree_);
     return is;
 }
 
-// To do
+//! Methode qui retourne le numero d'episode
+//! \return numEpisode_
 unsigned int Episode::getNumEpisode() const
 {
-    // To do
-    return this->numEpisode_;
+    return numEpisode_;
 }

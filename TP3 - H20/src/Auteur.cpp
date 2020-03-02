@@ -1,8 +1,9 @@
 // To do
 #include "Auteur.h"
-// To do
+
+
+//! Constructeur de la classe Auteur par defaut
 Auteur::Auteur()
-// To do
     :nom_(),
     anneeDeNaissance_(),
     nbMedias_(0)
@@ -55,7 +56,7 @@ bool Auteur::operator==(const std::string& nom) const
     return (nom_ == nom);
 }
 
-//! operateur qui affiche un auteur
+//! Operateur qui affiche un auteur
 //! \param os Le stream dans lequel afficher
 //! \param auteur l'auteur a afficher
 std::ostream& operator<<(std::ostream& os, const Auteur& auteur)
@@ -66,25 +67,9 @@ std::ostream& operator<<(std::ostream& os, const Auteur& auteur)
     return os;
 }
 
-// To do
-//! Méthode qui ajoute un auteur avec un string
-//! \param ligne Le string qui comporte tous les attributs de l'auteur
-//bool GestionnaireAuteurs::lireLigneAuteur(const std::string& ligne)
-//{
-//    std::istringstream stream(ligne);
-//    std::string nomAuteur;
-//    unsigned int age;
-//
-//    // Pour extraire tout ce qui se trouve entre "" dans un stream,
-//    // il faut faire stream >> std::quoted(variable)
-//
-//    if (stream >> std::quoted(nomAuteur) >> age)
-//    {
-//        bool succes = *this += Auteur(nomAuteur, age);
-//        return succes;
-//    }
-//    return false;
-//} 
+//! Operateur qui affecte un auteur
+//! \param is Le stream avec les infos (nom et age)
+//! \param auteur l'auteur a affecter
 std::istream& operator>>(std::istream& is, Auteur& auteur)
 {
     // To do
