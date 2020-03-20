@@ -1,8 +1,0 @@
-﻿  Auteur.cpp
-  Episode.cpp
-  Film.cpp
-C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Serie.h(11,5): error C2504: 'Media': base class undefined
-C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Serie.h(14,51): error C2061: syntax error: identifier 'Genre'
-C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Serie.h(20,21): error C2065: 'Media': undeclared identifier
-C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Serie.h(20,10): error C2923: 'std::unique_ptr': 'Media' is not a valid template type argument for parameter '_Ty'
-C:\Users\Mart\Documents\POLY\INF1010\TP3 - H20\include\Serie.h(20,26): fatal error C1903: unable to recover from previous error(s); stopping compilation

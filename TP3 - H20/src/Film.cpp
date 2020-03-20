@@ -1,44 +1,54 @@
 // To do
 #include "Film.h"
-#include "Auteur.h"
-#include "Media.h"
-// To do
+
+//! Constructeur de la classe Film
+//! \param auteur              Pointeur vers l'auteur
 Film::Film(Auteur* auteur)
-// To do
     : Media(auteur, Media::TypeMedia::Film),
-    duree_()
+    duree_("00:00:00")
 {
 }
 
-// To do
+//! Constructeur de la classe Film
+//! \param nom                 Nom du film
+//! \param anneeDeSortie       Annee de sortie
+//! \param genre               Genre
+//! \param pays                Pays
+//! \param estRestreintParAge  Si le film est restreint par age
+//! \param auteur              Pointeur vers l'auteur
+//! \param duree               Duree du film
 Film::Film(const std::string& nom, unsigned int anneeDeSortie, Genre genre, Pays pays,
            bool estRestreintParAge, Auteur* auteur, const std::string& duree)
-    // To do
     :Media(nom, anneeDeSortie, genre, pays,
         estRestreintParAge, auteur, Media::TypeMedia::Film),
     duree_(duree)
 {
 }
 
-// To do
+//! Methode qui affiche un film
+//! \param os Le stream dans lequel afficher
+//! \return   Le stream dans lequel afficher
 std::ostream& Film::afficher(std::ostream& os) const
 {
-    // To do
-    os << duree_;
+    os << "Durée:" << duree_;
+    return os;
 }
 
-// To do
+//! Methode qui affecte un film
+//! \param is Le stream avec les infos (duree)
+//! \return   Le stream avec les infos
 std::istream& Film::lire(std::istream& is)
 {
     // To do
     std::string duree;
     is >> std::quoted(duree);
     duree_ = duree;
+    return is;
 }
 
-// To do
+//! Methode qui copie un pointeur Film
+//! \return Le pointeur de film
 std::unique_ptr<Media> Film::clone() const
 {
-    // To do
-    return std::make_unique<Media>(this);
+    return std::make_unique<Film>(*this);
 }

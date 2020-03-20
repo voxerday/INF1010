@@ -3,6 +3,7 @@
 
 #include <iomanip>
 // To do
+#include <vector>
 #include "GestionnaireSaisons.h"
 #include "Media.h"
 

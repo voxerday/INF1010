@@ -12,7 +12,7 @@ GestionnaireAuteurs::GestionnaireAuteurs()
 Auteur* GestionnaireAuteurs::chercherAuteur(const std::string& nomAuteur)
 {
     for (size_t i = 0; i < auteurs_.size(); i++)
-        if (auteurs_[i] == nomAuteur)
+        if (auteurs_[i].getNom() == nomAuteur)
             return &auteurs_[i];
 
     return nullptr;
@@ -68,7 +68,6 @@ bool GestionnaireAuteurs::operator+=(const Auteur& auteur)
 std::ostream& operator<<(std::ostream& os, const GestionnaireAuteurs& gestionnaireAuteurs)
 {
     for (size_t i = 0; i < gestionnaireAuteurs.auteurs_.size(); i++)
-        // if(gestionnaireAuteurs.auteurs_[i] != NULL)
         os << gestionnaireAuteurs.auteurs_[i] << '\n';
 
     return os;

@@ -38,72 +38,79 @@ namespace
     }
 } // namespace
 
-// To do
+//! Constructeur de la classe Media
+//! \param auteur              Pointeur vers l'auteur
+//! \param typeMedia           Le type du media
 Media::Media(Auteur* auteur, Media::TypeMedia typeMedia)
-// To do
-    :nom_(),
-    anneeDeSortie_(),
-    genre_(),
-    pays_(),
-    estRestreintParAge_(),
-    auteur_(auteur),
-    typeMedia_(typeMedia),
-    paysRestreints_(std::vector<Pays>(0))
+    : auteur_(auteur)
+    , typeMedia_(typeMedia)
+    , paysRestreints_({})
 {
 }
 
-// To do
+//! Constructeur de la classe Media
+//! \param nom                 Nom du Media
+//! \param anneeDeSortie       Annee de sortie
+//! \param genre               Genre
+//! \param pays                Pays
+//! \param estRestreintParAge  Si le Media est restreint par age
+//! \param auteur              Pointeur vers l'auteur
+//! \param typeMedia           Le type du media
 Media::Media(const std::string& nom, unsigned int anneeDeSortie, Genre genre, Pays pays,
              bool estRestreintParAge, Auteur* auteur, Media::TypeMedia typeMedia)
-    // To do
     :nom_(nom),
+    anneeDeSortie_(anneeDeSortie),
     genre_(genre),
     pays_(pays),
     estRestreintParAge_(estRestreintParAge),
     auteur_(auteur),
     typeMedia_(typeMedia),
-    paysRestreints_(std::vector<Pays>(0))
+    paysRestreints_({})
 {
 }
 
-// To do
+//! Constructeur par copie de la classe Media
+//! \param serie                 media a copier
 Media::Media(const Media& serie)
+    : nom_(serie.nom_),
+    anneeDeSortie_(serie.anneeDeSortie_),
+    genre_(serie.genre_),
+    pays_(serie.pays_),
+    estRestreintParAge_(serie.estRestreintParAge_),
+    auteur_(serie.auteur_),
+    typeMedia_(serie.typeMedia_)
 {
-    // To do
-    nom_ = serie.nom_;
-    anneeDeSortie_ = serie.anneeDeSortie_;
-    genre_ = serie.genre_;
-    pays_ = serie.pays_;
-    estRestreintParAge_ = serie.estRestreintParAge;
-    auteur_ = serie.auteur_;
-    typeMedia_ = serie.typeMedia_;
-    paysRestreints_ = serie.paysRestreints_;
+    supprimerPaysRestreints();
+
+    for (unsigned int i = 0; i < serie.paysRestreints_.size(); i++) {
+        ajouterPaysRestreint(serie.paysRestreints_[i]);
+    }
 }
 
 
-// To do
+//! Destructeur de la classe Media
 Media::~Media()
 {
-    // To do
-    auteur_->setNbMedias(auteur_->getNbMedias() - 1);
-    supprimerPaysRestreints();
+    paysRestreints_.clear();
 }
 
-// To do
+//! Methode qui ajoute un pays  a la liste des pays restreint
+//! \param pays Le pays restreint
 void Media::ajouterPaysRestreint(Pays pays)
 {
     // To do
     paysRestreints_.push_back(pays);
 }
 
-// To do
+//! Methode qui vide le vecteur de peays restreint
 void Media::supprimerPaysRestreints()
 {
-    // To do
     paysRestreints_.clear();
 }
 
-// To do
+//! Methode qui retourne un bool si le film est restreint dans le pays
+//! \param pays Le pays a verifier
+//! \return     un bool si le film est restreint dans le pays
 bool Media::estRestreintDansPays(Pays pays) const
 {
     // To do
@@ -113,131 +120,103 @@ bool Media::estRestreintDansPays(Pays pays) const
     return false;
 }
 
-// To do
+//! Methode qui retourne un bool si le film est restreint par l'age
+//! \return un bool si le film est restreint par l'age
 bool Media::estRestreintParAge() const
 {
-    // To do
     return estRestreintParAge_;
 }
 
-// To do
+//! Methode qui affiche un media.
+//! \param os                   Le stream dans lequel afficher
+//! \return                     Le stream dans lequel afficher
 std::ostream& Media::afficher(std::ostream& os) const
 {
-    // To do
-    /*const std::string filmStringAttendu =
-        "FilmTestDatedesortie:2019Genre:ActionAuteur:AuteurTestPays:EtatsUnisAucunpaysrestreint."
-        "Durée:00:00:00";*/
-    /*const std::string serieStringAttendu =
-        "SerieTestDatedesortie:2019Genre:ActionAuteur:AuteurTestPays:EtatsUnisAucunpaysrestreint."
-        "Saison01:2/20(Encours)"
-        "Episode01:Episode:01|Durée:00:00:00"
-        "Episode03:Episode:03|Durée:00:00:00"
-        "Saison02:0/20(Encours)"
-        "SerieTestDatedesortie:2019Genre:ActionAuteur:AuteurTestPays:EtatsUnisAucunpaysrestreint."
-        "Saison01:2/20(Encours)"
-        "Episode01:Episode:01|Durée:00:00:00"
-        "Episode04:Episode:04|Durée:00:00:00"
-        "Saison02:1/20(Encours)"
-        "Episode05:Episode:05|Durée:00:00:00"
-        "SerieTestDatedesortie:2019Genre:ActionAuteur:AuteurTestPays:EtatsUnisAucunpaysrestreint."
-        "Saison01:2/20(Encours)"
-        "Episode01:Episode:01|Durée:00:00:00"
-        "Episode04:Episode:04|Durée:00:00:00";*/
-
-    os << nom_ << 
-        "Datedesortie:" << anneeDeSortie_ <<
-        "Genre:" << getGenreString(genre_) <<
-        "Auteur:" << auteur_ <<
-        "Pays:" << getPaysString(pays_) <<
-        (paysRestreints_.size() == 0 ? "Aucun pays restreint." : "Pays restreints:");
-
-    for (std::size_t i = 0; i < paysRestreints_.size(); i++)
-    {
-        os << "\n\t\t" << getPaysString(paysRestreints_[i]);
-    }
-    return os << std::endl;
-
+    return os << *this;
 }
 
-// To do
+//! Operateur qui affiche un media.
+//! \param os                   Le stream dans lequel afficher
+//! \param media                Le media a afficher
+//! \return                     Le stream dans lequel afficher
 std::ostream& operator<<(std::ostream& os, const Media& media)
 {
-    // To do
-    if ((media).getTypeMedia() == Media::TypeMedia::Film)
+
+    os << media.nom_ << "\n\tDate de sortie: " << media.anneeDeSortie_
+        << "\n\tGenre: " << getGenreString(media.genre_) << "\n\tAuteur: " << media.auteur_->getNom()
+        << "\n\tPays: " << getPaysString(media.pays_)
+        << (media.paysRestreints_.size() == 0 ? "\n\tAucun pays restreint." : "\n\tPays restreints:");
+
+    for (std::size_t i = 0; i < media.paysRestreints_.size(); i++)
     {
-        (Film*)&media.afficher(os);
+        os << "\n\t\t" << getPaysString(media.paysRestreints_[i]);
     }
-    else if ((media).getTypeMedia() == Media::TypeMedia::Serie) 
-    {
-        (Serie*)&media.afficher(os);
-    }
+    os << '\n';
+    media.afficher(os);
+    return os;
 }
 
-// To do
+//! Methode qui retourne l'auteur
+//! \return auteur_
+Auteur* Media::getAuteur() const
+{
+    return auteur_;
+}
+
+//! Methode qui retourne le genre
+//! \return genre_
 Media::Genre Media::getGenre() const
 {
-    // To do
     return genre_;
 }
 
-// To do
+//! Methode qui retourne le nom
+//! \return nom_
 const std::string& Media::getNom() const
 {
-    // To do
     return nom_;
 }
 
-// To do
+//! Methode qui retourne le type de media
+//! \return typeMedia_
 Media::TypeMedia Media::getTypeMedia() const
 {
-    // To do
     return typeMedia_;
 }
 
-// To do
+//! Methode qui affecte un media depuis un stream
+//! \param is   le stream avec les infos du media
+//! \return     le stream
 std::istream& Media::lire(std::istream& is)
 {
-    // To do
-    //"\"Film Test\" 2019 0 3 0 \"00:00:00\""
-    //"FilmTestDatedesortie:2019Genre:ActionAuteur:AuteurTestPays:EtatsUnisAucunpaysrestreint."
-    //"Durée:00:00:00";
-    std::string nom;
-    unsigned int anneeDeSortie;
-    int genreVal;
-    int paysVal;
-    bool estRestreintParAge;
-
-    if (is >> std::quoted(nom) >> anneeDeSortie >> genreVal >> paysVal >> estRestreintParAge)
-    {
-        Genre genre = to_enum<Genre>(genreVal);
-        Pays pays = to_enum<Pays>(paysVal);
-        nom_ = nom;
-        anneeDeSortie_ = anneeDeSortie;
-        genre_ = genre;
-        pays_ = pays;
-        estRestreintParAge_ = estRestreintParAge;
-        if (*this->getTypeMedia == Media::TypeMedia::Film)
-        {
-            (Film*)&this->lire(is);
-        }
-        else if (*this->getTypeMedia == Media::TypeMedia::Serie)
-        {
-            (Serie*)&this->lire(is);
-        }
-    }
-    
+    return is;
 }
 
-// To do
+//! Operateur qui affecte un media depuis un stream
+//! \param is       le stream avec les infos du media
+//! \param media    le media a affecter
+//! \return         le stream
 std::istream& operator>>(std::istream& is, Media& media)
 {
-    // To do
+    std::string nom;
+    unsigned int anneeDeSortie;
+    int genre, pays;
+    bool estRestreintParAge;
+    if (is >> std::quoted(nom) >> anneeDeSortie >> genre >> pays >> estRestreintParAge)
+    {
+        media.nom_ = nom;
+        media.anneeDeSortie_ = anneeDeSortie;
+        media.genre_ = to_enum<Media::Genre>(genre);
+        media.pays_ = to_enum<Pays>(pays);
+        media.estRestreintParAge_ = estRestreintParAge;
+    }
     media.lire(is);
+    return is;
 }
 
-// To do
+//! Methode qui copie un pointeur Media
+//! \return Le pointeur de media
 std::unique_ptr<Media> Media::clone() const
 {
-    // To do
     return std::make_unique<Media>(*this);
 }

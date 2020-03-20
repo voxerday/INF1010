@@ -46,35 +46,35 @@ int main()
     std::cout << episodeString << std::endl;
 
     episodeString.erase(remove_if(episodeString.begin(),
-                                  episodeString.end(),
-                                  [](unsigned char c) { return isspace(c); }),
-                        episodeString.end());
-    tests.push_back((episodeString == episodeStringAttendu)  &&
-                    (episode_01 == 1));
+        episodeString.end(),
+        [](unsigned char c) { return isspace(c); }),
+        episodeString.end());
+    tests.push_back((episodeString == episodeStringAttendu) &&
+        (episode_01 == 1));
 
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 2: classe Saison
     Saison saison_01;
     std::string saisonLigne = "1 20";
     std::string saisonString;
     const std::string saisonStringAttendu = "Saison01:3/20(Encours)"
-                                            "Episode01:Episode:01|Durée:00:00:00"
-                                            "Episode02:Episode:02|Durée:00:00:00"
-                                            "Episode03:Episode:03|Durée:00:00:00"
-                                            "Saison01:2/20(Encours)"
-                                            "Episode01:Episode:01|Durée:00:00:00"
-                                            "Episode03:Episode:03|Durée:00:00:00";
+        "Episode01:Episode:01|Durée:00:00:00"
+        "Episode02:Episode:02|Durée:00:00:00"
+        "Episode03:Episode:03|Durée:00:00:00"
+        "Saison01:2/20(Encours)"
+        "Episode01:Episode:01|Durée:00:00:00"
+        "Episode03:Episode:03|Durée:00:00:00";
     std::istringstream streamSaison(saisonLigne);
     std::stringstream saisondeStream;
 
     streamSaison >> saison_01;
     (((saison_01 += std::make_unique<Episode>(1, "Episode:01", "00:00:00")) +=
-      std::make_unique<Episode>(2, "Episode:02", "00:00:00")) +=
-     std::make_unique<Episode>(3, "Episode:03", "00:00:00")) +=
+        std::make_unique<Episode>(2, "Episode:02", "00:00:00")) +=
+        std::make_unique<Episode>(3, "Episode:03", "00:00:00")) +=
         std::make_unique<Episode>(3, "Episode:03", "00:00:00");
     saisondeStream << saison_01 << std::endl;
 
@@ -85,17 +85,17 @@ int main()
     std::cout << saisonString;
 
     saisonString.erase(remove_if(saisonString.begin(),
-                                 saisonString.end(),
-                                 [](unsigned char c) { return isspace(c); }),
-                       saisonString.end());
+        saisonString.end(),
+        [](unsigned char c) { return isspace(c); }),
+        saisonString.end());
     tests.push_back((saisonString == saisonStringAttendu) && (saison_01.getNbEpisodes() == 2) &&
-                     (saison_01 == 1));
+        (saison_01 == 1));
 
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
 
     // test 3 classe Auteur
     std::stringstream auteurStream_01;
@@ -111,18 +111,18 @@ int main()
     auteurString_01 = auteurStream_01.str();
     std::cout << auteurString_01 << std::endl;
     auteurString_01.erase(remove_if(auteurString_01.begin(),
-                                    auteurString_01.end(),
-                                    [](unsigned char c) { return isspace(c); }),
-                          auteurString_01.end());
+        auteurString_01.end(),
+        [](unsigned char c) { return isspace(c); }),
+        auteurString_01.end());
 
-    tests.push_back((auteurString_01 == auteurAttendu)  &&
-                    (auteur_01 == "Auteur Test"));
+    tests.push_back((auteurString_01 == auteurAttendu) &&
+        (auteur_01 == "Auteur Test"));
 
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 4: classe Film / Media
 
     Film film_01(&auteur_01);
@@ -141,17 +141,17 @@ int main()
     std::cout << filmString << std::endl;
 
     filmString.erase(remove_if(filmString.begin(),
-                               filmString.end(),
-                               [](unsigned char c) { return isspace(c); }),
-                     filmString.end());
+        filmString.end(),
+        [](unsigned char c) { return isspace(c); }),
+        filmString.end());
     tests.push_back((filmString == filmStringAttendu) &&
-                    (film_01.getTypeMedia() == Film::TypeMedia::Film));
+        (film_01.getTypeMedia() == Film::TypeMedia::Film));
 
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 5: classe Serie / Media / GestionnaireSaison
     Serie serie_01(&auteur_01);
 
@@ -198,21 +198,21 @@ int main()
     std::cout << serieString << std::endl;
 
     serieString.erase(remove_if(serieString.begin(),
-                                serieString.end(),
-                                [](unsigned char c) { return isspace(c); }),
-                      serieString.end());
+        serieString.end(),
+        [](unsigned char c) { return isspace(c); }),
+        serieString.end());
     tests.push_back((serieString == serieStringAttendu) && (serie_01.getNbSaisons() == 1) &&
-                    (serie_01.getTypeMedia() == Serie::TypeMedia::Serie));
+        (serie_01.getTypeMedia() == Serie::TypeMedia::Serie));
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 6 et 7: Lecture des fichiers et affichage.
     // Assurez-vous de mettre les fichiers à la bonne place pour que
     // le programme puisse les trouver.
     bool resultatLectureAuteurs = gestionnaireAuteurs.chargerDepuisFichier("auteurs.txt") &&
-                                  gestionnaireAuteurs.chargerDepuisFichier("auteurs.txt");
+        gestionnaireAuteurs.chargerDepuisFichier("auteurs.txt");
     bool resultatLectureFilms =
         librairie.chargerMediasDepuisFichier("Medias.txt", gestionnaireAuteurs) &&
         librairie.chargerMediasDepuisFichier("Medias.txt", gestionnaireAuteurs);
@@ -232,12 +232,12 @@ int main()
         "NombredeFilm/Serie:1Nom:PaulScheuring|Datedenaissance:1968|NombredeFilm/Serie:1";
 
     auteurString.erase(remove_if(auteurString.begin(),
-                                 auteurString.end(),
-                                 [](unsigned char c) { return isspace(c); }),
-                       auteurString.end());
+        auteurString.end(),
+        [](unsigned char c) { return isspace(c); }),
+        auteurString.end());
 
     tests.push_back(sortieAttendueAuteurs == auteurString && resultatLectureAuteurs == true &&
-                    gestionnaireAuteurs.getNbAuteurs() == 4);
+        gestionnaireAuteurs.getNbAuteurs() == 4);
 
     // Test 7: Affichage des films et des restrictions
     std::stringstream librairieStream;
@@ -315,19 +315,19 @@ int main()
         "00:40:20";
 
     librairieString.erase(remove_if(librairieString.begin(),
-                                    librairieString.end(),
-                                    [](unsigned char c) { return isspace(c); }),
-                          librairieString.end());
+        librairieString.end(),
+        [](unsigned char c) { return isspace(c); }),
+        librairieString.end());
 
     tests.push_back(sortieAttendueLibrairie == librairieString && resultatLectureFilms == true &&
-                    resultatLectureRestrictions && librairie.getNbMedias() == 11 &&
-                    librairie.getNbFilms() == 9 && librairie.getNbSeries() == 2);
+        resultatLectureRestrictions && librairie.getNbMedias() == 11 &&
+        librairie.getNbFilms() == 9 && librairie.getNbSeries() == 2);
 #else
     tests.push_back(false);
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 8: operateur d'ajout d'auteurs
     bool test3Reussi = true;
     // Remplir le tableau des auteurs
@@ -352,7 +352,7 @@ int main()
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 9: Fonction recherche d'auteurs
     const Auteur* auteurTest = gestionnaireAuteurs.chercherAuteur("George Lucas");
     const Auteur* auteurInexsistant = gestionnaireAuteurs.chercherAuteur("qwerty");
@@ -364,7 +364,7 @@ int main()
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 10: Ajouter des films
     size_t nbFilmsAvantTest10 = librairie.getNbMedias();
     static constexpr unsigned int test10NbFilmsAjouter = 200;
@@ -372,19 +372,19 @@ int main()
     for (unsigned int i = 0; i < test10NbFilmsAjouter / 2; i++)
     {
         (librairie += std::make_unique<Film>("test",
-                                             1,
-                                             Film::Genre::Action,
-                                             Pays::Canada,
-                                             false,
-                                             &auteurTest8,
-                                             "20:00")) +=
+            1,
+            Film::Genre::Action,
+            Pays::Canada,
+            false,
+            &auteurTest8,
+            "20:00")) +=
             std::make_unique<Film>("test",
-                                   1,
-                                   Film::Genre::Action,
-                                   Pays::Canada,
-                                   false,
-                                   &auteurTest8,
-                                   "20:00");
+                1,
+                Film::Genre::Action,
+                Pays::Canada,
+                false,
+                &auteurTest8,
+                "20:00");
     }
     // Ajouter un film nullptr ne devrait rien faire
     (librairie += nullptr) += nullptr; // cascade
@@ -393,7 +393,7 @@ int main()
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 11: Supprimer des films
     // On supprime tous les films ajoutés au test 8
     size_t nbFilmsAvantTest11 = librairie.getNbMedias();
@@ -404,24 +404,24 @@ int main()
     // Et on supprime un film qui n'existe pas
     (librairie -= "asdf") -= "cascade"; // cascade
     tests.push_back(librairie.getNbMedias() + test10NbFilmsAjouter == nbFilmsAvantTest11 &&
-                    librairie.getNbMedias() == nbFilmsAvantTest10);
+        librairie.getNbMedias() == nbFilmsAvantTest10);
 
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 12: Recherche film
     Film* raidersOfTheLostArk = (librairie.chercherFilm("Raiders of the Lost Ark"));
     tests.push_back(raidersOfTheLostArk != nullptr &&
-                    raidersOfTheLostArk->getGenre() == Film::Genre::Aventure &&
-                    raidersOfTheLostArk->getNom() == "Raiders of the Lost Ark" &&
-                    librairie.chercherFilm("asdf") == nullptr);
+        raidersOfTheLostArk->getGenre() == Film::Genre::Aventure &&
+        raidersOfTheLostArk->getNom() == "Raiders of the Lost Ark" &&
+        librairie.chercherFilm("asdf") == nullptr);
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 13: Ajouter des Series
     size_t nbFilmsAvantTest13 = librairie.getNbMedias();
     static constexpr unsigned int test13NbSeriesAjouter = 200;
@@ -429,17 +429,17 @@ int main()
     for (unsigned int i = 0; i < test13NbSeriesAjouter / 2; i++)
     {
         (librairie += std::make_unique<Serie>("test",
-                                              1,
-                                              Serie::Genre::Action,
-                                              Pays::Canada,
-                                              false,
-                                              &auteurTest8)) +=
+            1,
+            Serie::Genre::Action,
+            Pays::Canada,
+            false,
+            &auteurTest8)) +=
             std::make_unique<Serie>("test",
-                                    1,
-                                    Serie::Genre::Action,
-                                    Pays::Canada,
-                                    false,
-                                    &auteurTest8);
+                1,
+                Serie::Genre::Action,
+                Pays::Canada,
+                false,
+                &auteurTest8);
     }
     // Ajouter une serie nullptr ne devrait rien faire
     (librairie += nullptr) += nullptr; // cascade
@@ -448,7 +448,7 @@ int main()
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 14: Supprimer des Series
     // On supprime toutes les Series ajoutés au test 14
     size_t nbFilmsAvantTest14 = librairie.getNbMedias();
@@ -459,36 +459,36 @@ int main()
     // Et on supprime un serie qui n'existe pas
     (librairie -= "asdf") -= "cascade"; // cascade
     tests.push_back(librairie.getNbMedias() + test13NbSeriesAjouter == nbFilmsAvantTest14 &&
-                    librairie.getNbMedias() == nbFilmsAvantTest13);
+        librairie.getNbMedias() == nbFilmsAvantTest13);
 
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 15: Recherche Serie
     Serie* gameofThrones = (librairie.chercherSerie("Game of Thrones"));
     tests.push_back(gameofThrones != nullptr && gameofThrones->getGenre() == Serie::Genre::Action &&
-                    gameofThrones->getNom() == "Game of Thrones" &&
-                    librairie.chercherSerie("asdf") == nullptr);
+        gameofThrones->getNom() == "Game of Thrones" &&
+        librairie.chercherSerie("asdf") == nullptr);
 #else
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 16: Ajouter/retiser Episode/Saison
     bool test_1 = librairie.getNbSaisons("Game of Thrones") == 2;
     librairie.ajouterSaison("Game of Thrones", std::make_unique<Saison>(3, 20));
     librairie.ajouterSaison("Game of Thrones", std::make_unique<Saison>(4, 20));
     librairie.ajouterEpisode("Game of Thrones",
-                             4,
-                             std::make_unique<Episode>(1, "Episode 01", "00:00:00"));
+        4,
+        std::make_unique<Episode>(1, "Episode 01", "00:00:00"));
     librairie.ajouterEpisode("Game of Thrones",
-                             4,
-                             std::make_unique<Episode>(5, "Episode 01", "00:00:00"));
+        4,
+        std::make_unique<Episode>(5, "Episode 01", "00:00:00"));
     librairie.ajouterEpisode("Game of Thrones",
-                             4,
-                             std::make_unique<Episode>(20, "Episode 01", "00:00:00"));
+        4,
+        std::make_unique<Episode>(20, "Episode 01", "00:00:00"));
     bool test_2 = librairie.getNbEpisodes("Game of Thrones", 4) == 3;
     librairie.retirerEpisode("Game of Thrones", 4, 1);
     librairie.retirerEpisode("Game of Thrones", 4, 2);
@@ -507,7 +507,7 @@ int main()
     tests.push_back(false);
 #endif
 
-#if false
+#if true
     // Test 17: Utilisateur non premium limite de films
     Auteur auteur("Test", 23);
     Film film("film1", 1990, Film::Genre::Comedie, Pays::Mexique, false, &auteur, "20:00");
@@ -544,23 +544,23 @@ int main()
     tests.push_back(false);
 #endif
 
-#if false
+#if true
 
     // test 20 constructeur de copie de librairie et operateur=
     librairie += std::make_unique<Film>("tes2t",
-                                        1,
-                                        Film::Genre::Action,
-                                        Pays::Canada,
-                                        false,
-                                        &auteurTest8,
-                                        "20:00");
+        1,
+        Film::Genre::Action,
+        Pays::Canada,
+        false,
+        &auteurTest8,
+        "20:00");
     Librairie lib(librairie);
     Librairie lib3 = librairie = librairie;
 
     tests.push_back(lib.getMedias()[0] != librairie.getMedias()[0] &&
-                    lib.getMedias()[0]->getNom() == librairie.getMedias()[0]->getNom() &&
-                    lib3.getMedias()[0] != librairie.getMedias()[0] &&
-                    lib3.getMedias()[0]->getNom() == librairie.getMedias()[0]->getNom());
+        lib.getMedias()[0]->getNom() == librairie.getMedias()[0]->getNom() &&
+        lib3.getMedias()[0] != librairie.getMedias()[0] &&
+        lib3.getMedias()[0]->getNom() == librairie.getMedias()[0]->getNom());
 
 #else
     tests.push_back(false);
