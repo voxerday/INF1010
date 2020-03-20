@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Mart\Documents\POLY\INF1010\TP4 - H20\Windows\TP4_H20\include\</FILEPATH>
+      <FILENAME>Matrice.h</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>41</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Matrice&lt;int&gt;::width_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Matrice&lt;int&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrice@H@@QEAA@XZ</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Matrice&lt;int&gt;::width_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Mart\Documents\POLY\INF1010\TP4 - H20\Windows\TP4_H20\include\</FILEPATH>
+      <FILENAME>Matrice.h</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>41</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Matrice&lt;int&gt;::height_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Matrice&lt;int&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrice@H@@QEAA@XZ</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Matrice&lt;int&gt;::height_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Mart\Documents\POLY\INF1010\TP4 - H20\Windows\TP4_H20\include\</FILEPATH>
+      <FILENAME>Matrice.h</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>41</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Matrice&lt;Pixel&gt;::width_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Matrice&lt;Pixel&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrice@VPixel@@@@QEAA@XZ</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Matrice&lt;Pixel&gt;::width_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Mart\Documents\POLY\INF1010\TP4 - H20\Windows\TP4_H20\include\</FILEPATH>
+      <FILENAME>Matrice.h</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>41</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Matrice&lt;Pixel&gt;::height_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Matrice&lt;Pixel&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrice@VPixel@@@@QEAA@XZ</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Matrice&lt;Pixel&gt;::height_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Mart\Documents\POLY\INF1010\TP4 - H20\Windows\TP4_H20\include\</FILEPATH>
+      <FILENAME>Matrice.h</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>41</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Matrice&lt;Couleur&gt;::width_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Matrice&lt;Couleur&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrice@VCouleur@@@@QEAA@XZ</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Matrice&lt;Couleur&gt;::width_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\Mart\Documents\POLY\INF1010\TP4 - H20\Windows\TP4_H20\include\</FILEPATH>
+      <FILENAME>Matrice.h</FILENAME>
+      <LINE>51</LINE>
+      <COLUMN>41</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Matrice&lt;Couleur&gt;::height_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Matrice&lt;Couleur&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrice@VCouleur@@@@QEAA@XZ</DECORATED>
+    <FUNCLINE>51</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>Matrice&lt;Couleur&gt;::height_</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
