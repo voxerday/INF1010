@@ -20,12 +20,27 @@ public:
 private:
   M *matrice_;
 };
+/**
+ * @brief Agrandit une matrice selon un rapport donné
+ * @param rapport, un multiplicateur pour redimmentionner la matrice
+ */
+template <class M> void AgrandirMatrice<M>::redimensionnerImage(const unsigned int& rapport) {
+    std::unique_ptr<M> matrice = matrice_->clone();
+    matrice_->setHeight(rapport * matrice_->getHeight());
+    matrice_->setWidth(rapport * matrice_->getWidth());
 
+    for (size_t i = 0; i < matrice_->getWidth(); i++) {
+        for (size_t j = 0; j < matrice_->getHeight(); j++) {
+            Coordonnees pos = trouverLePlusProcheVoisin(rapport, j, i);
+            matrice_->ajouterElement(matrice->operator()(pos.y, pos.x), j, i);
+        }
+    }
+}
 /**
  * @brief constructeur par défaut de la classe
  */
 template <class M> AgrandirMatrice<M>::AgrandirMatrice() {
-  // TO DO
+    matrice_->M();
 }
 /**
  * @brief constructeur par paramètre de la classe
@@ -44,8 +59,10 @@ template <class M>
 Coordonnees
 AgrandirMatrice<M>::trouverLePlusProcheVoisin(const unsigned int &rapport,
                                               size_t posY, size_t posX) const {
-  // TO DO
-  return {};
+    Coordonnees pos;
+    pos.x = posX / rapport;
+    pos.y = posY / rapport;
+    return { pos };
 }
 
 #endif

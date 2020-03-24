@@ -82,8 +82,8 @@ int main() {
     std::cout << imageCouleur << std::endl << std::endl;
     delete imageCouleur;
   }
-
-#else
+#endif
+#if true
   // Tests de la classe Pixel: Tests 1-4
 #if true
   Pixel pixel;
