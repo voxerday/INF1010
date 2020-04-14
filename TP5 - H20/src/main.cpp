@@ -19,18 +19,25 @@ int main()
     Tests::testAll();
 
     // Écrivez le code pour le bonus ici
+    
+    //Nom des fichiers des gestionnaires avec l'info à extraire
+    std::string userTxt = "utilisateurs.txt";
+    std::string filmsTxt = "films.txt";
+    std::string logTxt = "logs.txt";
+
+    //Initialiosation des gestionnaires
     GestionnaireUtilisateurs gestionnaireUtilisateurs;
     GestionnaireFilms gestionnaireFilms;
     AnalyseurLogs analyseurLogs;
 
 
-    //UTILISATEURS
-    gestionnaireUtilisateurs.chargerDepuisFichier("utilisateurs.txt");
+    //Affichage UTILISATEURS
+    gestionnaireUtilisateurs.chargerDepuisFichier(userTxt);
 
     std::cout << std::endl << gestionnaireUtilisateurs << std::endl;
 
-    //FILMS
-    gestionnaireFilms.chargerDepuisFichier("films.txt");
+    //Affichage FILMS
+    gestionnaireFilms.chargerDepuisFichier(filmsTxt);
 
     std::cout << "Films d'aventure:" << std::endl;
     for (const Film* film : gestionnaireFilms.getFilmsParGenre(Film::Genre(1)))
@@ -44,8 +51,8 @@ int main()
         std::cout << '\t' << *film << '\n';
     }
 
-    //LOGS
-    analyseurLogs.chargerDepuisFichier("logs.txt", gestionnaireUtilisateurs, gestionnaireFilms);
+    //Affichage LOGS
+    analyseurLogs.chargerDepuisFichier(logTxt, gestionnaireUtilisateurs, gestionnaireFilms);
 
     const Film* filmPop = analyseurLogs.getFilmPlusPopulaire();
     int filmPopScore = analyseurLogs.getNombreVuesFilm(filmPop);

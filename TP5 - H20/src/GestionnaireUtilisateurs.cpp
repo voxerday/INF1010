@@ -63,21 +63,34 @@ bool GestionnaireUtilisateurs::chargerDepuisFichier(const std::string& nomFichie
     return false;
 }
 
+/// Ajoute un utilisateur au gestionnaire, en l’inserant dans la map avec son ID comme cle et l’utilisateur comme valeur.
+/// \param utilisateur      L'utilisateur a ajouter au gestionnaire.
+/// \return                 Retourne true si l’utilisateur a ete ajoute avec succes, false sinon.
 bool GestionnaireUtilisateurs::ajouterUtilisateur(const Utilisateur& utilisateur)
 {
     return utilisateurs_.emplace(utilisateur.id, utilisateur).second;
 }
 
+/// Supprime un utilisateur du gestionnaire a partir de son ID.
+/// \param idUtilisateur    L'id d'utilisateur a retirer du gestionnaire.
+/// \return                 Retourne  true  si  l’utilisateur  a  ete  trouve  et  supprime  avec  succes,  false sinon.
 bool GestionnaireUtilisateurs::supprimerUtilisateur(const std::string& idUtilisateur)
 {
     return utilisateurs_.erase(idUtilisateur);
 }
 
 // Getters
+
+/// Retourne le nombre d’utilisateurs présentement dans le gestionnaire.
+/// \return             La grosseur de la map d'utilisateur.
 std::size_t GestionnaireUtilisateurs::getNombreUtilisateurs() const
 {
     return utilisateurs_.size();
 }
+
+/// Trouve et retourne un utilisateur en le cherchant a partir de son ID.
+/// \param id           L'id d'utilisateur a retirer du gestionnaire.
+/// \return             Retourne un pointeur vers l’utilisateur trouve, sinon nullptr.
 const Utilisateur* GestionnaireUtilisateurs::getUtilisateurParId(const std::string& id) const
 {
     return utilisateurs_.find(id) != utilisateurs_.end() ? &(utilisateurs_.find(id)->second) : nullptr;

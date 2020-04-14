@@ -167,9 +167,10 @@ std::vector<const Film*> GestionnaireFilms::getFilmsParPays(Pays pays) const
     return filtrePaysFilms_.find(pays) != filtrePaysFilms_.end() ? (filtrePaysFilms_.find(pays)->second) : std::vector<const Film*>();
 }
 
-/// Retourne une copie de la liste des films appartenant à un genre donné.
-/// \param genre        Le genre des films a retourner.
-/// \return             Un vecteur de pointeur vers les film trouve, vecteur vide si aucun film du genre.
+/// Retourne une copie de la liste des films appartenant entre deux annees donné.
+/// \param anneeDebut   L'annee de la borne inferieure de l'intervalle de recherche.
+/// \param anneeFin     L'annee de la borne superieure de l'intervalle de recherche.
+/// \return             Un vecteur de pointeur vers les film dans l'intervalle, vecteur vide si aucun film.
 std::vector<const Film*> GestionnaireFilms::getFilmsEntreAnnees(int anneeDebut, int anneeFin)
 {
     std::vector<const Film*> vecFilms;
