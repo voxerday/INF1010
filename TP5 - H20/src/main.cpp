@@ -30,7 +30,6 @@ int main()
     GestionnaireFilms gestionnaireFilms;
     AnalyseurLogs analyseurLogs;
 
-
     //Affichage UTILISATEURS
     gestionnaireUtilisateurs.chargerDepuisFichier(userTxt);
 
